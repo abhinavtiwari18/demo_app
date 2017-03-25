@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>VinTest</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="<%= root_path %>">SD App</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active">
+          <%= link_to 'Secret Codes', secret_codes_index_path , :method => :get %>
+        </li>
+        <!--<li><Users</a></li>-->
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <% if current_user.present? %>
+              <%= link_to "Logout", destroy_user_session_path, :method => :delete %>
+          <% else %>
+              <%= link_to "Sign In", new_user_session_path, :method => :get %>
+          <% end %>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container-fluid">
+  <% if flash[:notice].present? %>
+      <p class="alert alert-success"><%= flash[:notice] %></p>
+  <% end %>
+  <% if flash[:alert].present? %>
+      <p class="alert alert-danger"><%= flash[:alert] %></p>
+  <% end %>
+  <%= yield %>
+</div>
+
+</body>
+</html>
