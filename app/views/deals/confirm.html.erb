@@ -1,0 +1,15 @@
+<h2>You are buying this deal and the price is </h2>
+<h3><%= @customer_price %></h3>
+<div class="col-sm-6 col-md-4">
+  <div class="thumbnail">
+    <%= image_tag @deal.picture.url %>
+    <div class="caption">
+      <h3><%= @deal.title %></h3>
+      <p><%= @deal.description %></p>
+      <p>Price: <%= @deal.price %></p>
+      <p>Discounted Price: <%= @deal.discounted_price %></p>
+      <p>Customer Price: <%= @customer_price %></p>
+      <p><%= link_to 'Place Order', place_order_path(:id => @deal.id), class: 'btn btn-primary', role: 'button', method: :post %></p>
+    </div>
+  </div>
+</div>

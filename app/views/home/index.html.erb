@@ -1,0 +1,21 @@
+<div class="row">
+  <% if @published_deals.present? %>
+    <% @published_deals.each do |deal| %>
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <%= image_tag deal.picture.url %>
+          <div class="caption">
+            <h3><%= deal.title %></h3>
+            <p><%= deal.description %></p>
+            <p>Price: <%= deal.price %></p>
+            <p>Discounted Price: <%= deal.discounted_price %></p>
+            <p>Quantity: <%= deal.quantity %></p>
+            <p><%= link_to 'Buy', deal_confirm_path(:id => deal.id), class: 'btn btn-primary', role: 'button' %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <h2>No Deals Right Now, Please check after some time</h2>
+  <% end %>
+</div>

@@ -47,8 +47,15 @@ group :development do
 end
 
 gem "therubyracer"
-gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem "less-rails"
 gem "twitter-bootstrap-rails"
 
 gem 'devise'
 
+gem 'annotate'
+
+
+gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
+    :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
+
+gem "paperclip", "~> 5.0.0"

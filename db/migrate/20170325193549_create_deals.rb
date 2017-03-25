@@ -6,7 +6,7 @@ class CreateDeals < ActiveRecord::Migration
       t.integer :price
       t.integer :discounted_price
       t.integer :quantity
-      t.datetime :publist_date
+      t.datetime :publish_date
 
       t.timestamps null: false
     end

@@ -12,14 +12,16 @@
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <a class="navbar-brand" href="<%= root_path %>">SD App</a>
+      <a class="navbar-brand" href="<%= root_path %>">VinSol Test App</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active">
-          <%= link_to 'Secret Codes', secret_codes_index_path , :method => :get %>
+          <% if current_user.present? and current_user.is_admin? %>
+            <%= link_to 'Add Deals', new_deal_path , :method => :get %>
+          <% end %>
         </li>
         <!--<li><Users</a></li>-->
       </ul>

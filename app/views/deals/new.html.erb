@@ -1,0 +1,45 @@
+<div class="col-md-6 col-md-offset-3">
+  <%= form_tag deals_path, method: :post, multipart: true do %>
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" placeholder="Title" name="deal[title]">
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea class="form-control" rows="3" name="deal[description]"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input type="number" class="form-control" placeholder="Price" name="deal[price]">
+    </div>
+    <div class="form-group">
+      <label for="discounted_price">Discounted Price</label>
+      <input type="text" class="form-control" placeholder="Discounted Price" name="deal[discounted_price]">
+    </div>
+    <div class="form-group">
+      <label for="quantity">Quantity</label>
+      <input type="text" class="form-control" placeholder="Quantity" name="deal[quantity]">
+    </div>
+    <div class="form-group">
+      <label for="publish_date">Publish Date</label>
+      <input type="text" class="form-control" id="publish_date_picker" placeholder="Publish Date" name="deal[publish_date]">
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputFile">Image</label>
+      <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp" name="deal[picture]">
+    </div>
+    <button type="submit" class="btn btn-primary">Add</button>
+  <% end %>
+</div>
+<script>
+  $(document).on('turbolinks:load', function() {
+    var date = new Date();
+    date.setDate(date.getDate());
+
+    $('#publish_date_picker').datepicker({
+      startDate: date,
+      format: 'dd/mm/yyyy'
+    });
+  });
+</script>
